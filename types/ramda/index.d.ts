@@ -1053,8 +1053,8 @@ declare namespace R {
          */
         map<T, U>(fn: (x: T) => U, list: ReadonlyArray<T>): U[];
         map<T, U>(fn: (x: T) => U): (list: ReadonlyArray<T>) => U[];
-        map<T, U>(fn: (x: T[keyof T & keyof U]) => U[keyof T & keyof U], list: T): U;
-        map<T, U>(fn: (x: T[keyof T & keyof U]) => U[keyof T & keyof U]): (list: T) => U;
+        map<T, U>(fn: (x: T[keyof T]) => U, list: T): {[k in keyof T]: U};
+        map<T, U>(fn: (x: T[keyof T]) => U): (list: T) => {[k in keyof T]: U};
         map<T, U>(fn: (x: T) => U, obj: Functor<T>): Functor<U>; // used in functors
         map<T, U>(fn: (x: T) => U): (obj: Functor<T>) => Functor<U>; // used in functors
 
